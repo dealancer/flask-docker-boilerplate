@@ -24,3 +24,8 @@ This project is a simple flask app wrapped in the Docker container. You can spin
     -v /var/log/flask-docker-boilerplate:/var/log/flask-docker-boilerplate \
     -it flask-docker-boilerplate
     ```
+
+Alternatively you can use the following script to rebuild and run Docker container:
+```
+./local-run.sh
+```
