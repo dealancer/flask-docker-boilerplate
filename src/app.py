@@ -2,7 +2,7 @@ import logging
 from datetime import datetime
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../static')
 
 # Load config
 app.config.from_prefixed_env()
@@ -17,7 +17,7 @@ else:
 @app.route("/")
 def hello_world():
     app.logger.debug('Route "/" has been accessed.')
-    return "<p>Hello, World!</p>"
+    return '<h1>Hello, World!</h1><img src="/static/img/flask.png">'
 
 def create_app():
    return app
