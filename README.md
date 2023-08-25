@@ -2,7 +2,7 @@
 
 This project is a simple flask app wrapped in the Docker container. You can spin off development of your project with this boilerplate. This project uses Pipenv to manage Python packages.
 
-## How to run
+## Running
 
 1. Build Docker image:
     ```
@@ -27,5 +27,23 @@ This project is a simple flask app wrapped in the Docker container. You can spin
 
 Alternatively you can use the following script to rebuild and run Docker container:
 ```
-./local-run.sh
+./run-flask.sh
+```
+
+## Running a production server
+
+To run a production server use the following command:
+```
+docker run \
+--env-file .env \
+-p 5000:5000 \
+-v /var/log/flask-docker-boilerplate:/var/log/flask-docker-boilerplate \
+--entrypoint /bin/sh \
+-it flask-docker-boilerplate \
+-c 'python -m waitress --host 0.0.0.0 --port 5000 src.app:app'
+```
+
+You can also rebuild Docker container and run a production server with this command:
+```
+./run-waitress.py
 ```
