@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker build -t flask-docker-boilerplate .
+docker build -t flask-docker-boilerplate . && \
 
 docker run \
 --env-file .env \
