@@ -13,4 +13,4 @@ COPY static static
 COPY src src
 
 
-CMD ["sh", "-c" , "python -m flask --app src/app.py run --host 0.0.0.0"]
+CMD ["sh", "-c" , "python -m flask --app src/app.py run --host 0.0.0.0 --debug"]
