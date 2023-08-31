@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 from flask import Flask
+from .routes import routes
 
 app = Flask(__name__, static_folder='../static')
 
@@ -14,10 +15,7 @@ if app.config["LOG_ENABLED"]:
 else:
     logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
 
-@app.route("/")
-def hello_world():
-    app.logger.debug('Route "/" has been accessed.')
-    return '<h1>Hello, World!</h1><img src="/static/img/flask.png">'
+app.register_blueprint(routes)
 
 def create_app():
    return app
